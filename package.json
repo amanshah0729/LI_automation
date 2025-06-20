@@ -1,0 +1,28 @@
+{
+  "name": "unipile-campaign",
+  "version": "1.0.0",
+  "description": "LinkedIn automation tool using Unipile SDK for bulk messaging",
+  "type": "module",
+  "main": "unipile_bulk_linkedin.js",
+  "scripts": {
+    "start": "node unipile_bulk_linkedin.js",
+    "clean": "node csv_cleaner.js",
+    "send": "node unipile_bulk_linkedin.js"
+  },
+  "keywords": [
+    "linkedin",
+    "automation",
+    "unipile",
+    "bulk-messaging"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "unipile-node-sdk": "^1.0.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
