@@ -15,11 +15,11 @@ const LINKEDIN_ACCOUNT_ID = process.env.LINKEDIN_ACCOUNT_ID;
 // const LINKEDIN_USERNAME = 'your LinkedIn username';
 // const LINKEDIN_PASSWORD = 'your LinkedIn password';
 
-const MESSAGE_TEXT = `Hi! Thanks for connecting - getting an influx of requests right now, so it's a bit hard to keep track of where they're coming from. If you're looking to get access to the practice interviews for Meta or Citadel, here's the link as promised: https://www.safirahiring.com/auth?mode=signup
+const MESSAGE_TEXT = `Hi! Thanks for connecting - getting a bunch of requests right now so it's a bit hard to keep track of where they're coming from. If you connected to get access to the consulting prep interviews, here's the link as promised:
 
-Select a practice plan and use the promo code SAFIRABETA to get bypass the payment page, which is valid until June 23rd. Interviews should be loaded in, good luck prepping! Message me if you have questions/feedback.
+https://www.safirahiring.com/auth?token=6o6npz2!18Bl&mode=signup
 
-If the connection was regarding anything else, please feel free to respond and I'll get back as soon as I can :)
+This link is valid until July 1st and will give you a three day free trial before charging you. If the connection was regarding anything else, please feel free to respond and I'll get back as soon as I can :)
 `;
 
 

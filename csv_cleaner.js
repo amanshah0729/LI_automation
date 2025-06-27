@@ -6,7 +6,7 @@ import path from 'path';
 const INPUT_FILE = process.argv[2] || 'Invitations.csv';
 const OUTPUT_FILE = process.argv[3] || 'cleaned_profiles.csv';
 
-const CUTOFF_DATE = new Date('2025-06-13');
+const MAX_PROFILES = 671;
 
 const outputProfiles = [];
 
@@ -18,21 +18,16 @@ fs.createReadStream(INPUT_FILE)
   .on('data', (row) => {
     try {
       const type = row[4] || Object.values(row)[4];
-      const dateStr = row[2] || Object.values(row)[2];
       const theirProfile = row[5] || Object.values(row)[5];
-
-      // Date parsing: your dates look like "6/15/25, 9:45 AM"
-      // Parse just the date part
-      const dateOnly = dateStr.split(',')[0].trim();
-      const parsedDate = new Date(dateOnly);
 
       if (
         type === 'INCOMING' &&
-        parsedDate > CUTOFF_DATE &&
         theirProfile &&
-        theirProfile.includes('linkedin.com/in/')
+        theirProfile.includes('linkedin.com/in/') &&
+        outputProfiles.length < MAX_PROFILES
       ) {
         outputProfiles.push(theirProfile);
+        console.log(`Added profile ${outputProfiles.length}/${MAX_PROFILES}: ${theirProfile}`);
       }
     } catch (err) {
       // skip malformed lines
@@ -42,4 +37,5 @@ fs.createReadStream(INPUT_FILE)
     // Output to file, one URL per line
     fs.writeFileSync(OUTPUT_FILE, outputProfiles.join('\n'), 'utf8');
     console.log(`Done! Cleaned ${outputProfiles.length} profiles to ${OUTPUT_FILE}`);
+    console.log(`Stopped at ${outputProfiles.length} profiles (limit: ${MAX_PROFILES})`);
   });
